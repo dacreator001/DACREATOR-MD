@@ -8,12 +8,12 @@ const configuredPrefix = process.env.PREFIX;
 const prefix = configuredPrefix === undefined || configuredPrefix === "" ? "." : String(configuredPrefix);
 
 const channel = Object.freeze({
-  name: "『⚡』𝘿𝘼𝘾𝙍𝙀𝘼𝙏𝙊𝙍-𝙈𝘿 〆",
+  name: "『👿』𝘿𝘼𝘾𝙍𝙀𝘼𝙏𝙊𝙍 𝘿𝘼𝙀𝙈𝙊𝙉 〆",
   jid: "120207123456789@newsletter"
 });
 
 export default Object.freeze({
-  name: String(process.env.BOT_NAME || "『⚡』𝘿𝘼𝘾𝙍𝙀𝘼𝙏𝙊𝙍-𝙈𝘿 〆").trim() || "『⚡』𝘿𝘼𝘾𝙍𝙀𝘼𝙏𝙊𝙍-𝙈𝘿 〆",
+  name: String(process.env.BOT_NAME || "『👿』𝘿𝘼𝘾𝙍𝙀𝘼𝙏𝙊𝙍 𝘿𝘼𝙀𝙈𝙊𝙉 〆").trim() || "『👿』𝘿𝘼𝘾𝙍𝙀𝘼𝙏𝙊𝙍 𝘿𝘼𝙀𝙈𝙊𝙉 〆",
   version: String(process.env.BOT_VERSION || "1.0.0").trim() || "1.0.0",
   prefix,
   ownerName: String(process.env.OWNER_NAME || "『⚡』𝘿𝘼𝘾𝙍𝙀𝘼𝙏𝙊𝙍〆").trim() || "『⚡』𝘿𝘼𝘾𝙍𝙀𝘼𝙏𝙊𝙍〆",
