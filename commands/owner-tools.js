@@ -10,10 +10,10 @@ function duration(seconds) {
 export default {
   name: "runtime",
   category: "Owner",
-  description: "Show a read-only FEI XMD process uptime summary.",
+  description: "Show a read-only DACREATOR-MD process uptime summary.",
   run: async ctx => {
     await ctx.reply(
-      "⏱️ *FEI XMD RUNTIME*\n" +
+      "⏱️ *DACREATOR-MD RUNTIME*\n" +
       "Uptime: " + duration(process.uptime()) + "\n" +
       "WhatsApp connection: " + (ctx.connectionOpen ? "Connected" : "Not connected")
     );
