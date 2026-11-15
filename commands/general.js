@@ -410,6 +410,74 @@ const commands = [
     }
   }
 
+
+  // Additional safe dot-prefix utilities.
+  {
+    name: "flip",
+    category: "Normal",
+    description: "Flip a virtual coin.",
+    run: async ctx => ctx.reply(Math.random() < 0.5 ? "🪙 Heads" : "🪙 Tails")
+  },
+  {
+    name: "roll",
+    category: "Normal",
+    description: "Roll a virtual six-sided die.",
+    run: async ctx => ctx.reply("🎲 You rolled " + (Math.floor(Math.random() * 6) + 1))
+  },
+  {
+    name: "quote",
+    category: "Normal",
+    description: "Display an original motivational quote.",
+    run: async ctx => {
+      const quotes = [
+        "Progress is built one consistent step at a time.",
+        "Curiosity turns questions into discoveries.",
+        "Practice creates confidence."
+      ];
+      await ctx.reply("💬 " + quotes[Math.floor(Math.random() * quotes.length)]);
+    }
+  },
+  {
+    name: "joke",
+    category: "Normal",
+    description: "Tell a clean programming joke.",
+    run: async ctx => ctx.reply("Why do programmers love dark mode? Because light attracts bugs!")
+  },
+  {
+    name: "fliptext",
+    category: "Encoding / Crypto",
+    description: "Reverse the order of characters in text.",
+    run: async ctx => ctx.reply(ctx.args ? [...ctx.args].reverse().join("") : "Usage: .fliptext hello")
+  },
+  {
+    name: "rot13",
+    category: "Encoding / Crypto",
+    description: "Apply ROT13 to letters.",
+    run: async ctx => ctx.reply(ctx.args ? ctx.args.replace(/[a-z]/gi, c => String.fromCharCode(c.charCodeAt(0) + (c.toLowerCase() <= "m" ? 13 : -13))) : "Usage: .rot13 hello")
+  },
+  {
+    name: "atbash",
+    category: "Encoding / Crypto",
+    description: "Apply the Atbash substitution cipher.",
+    run: async ctx => ctx.reply(ctx.args ? ctx.args.replace(/[a-z]/gi, c => String.fromCharCode((c === c.toUpperCase() ? 65 : 97) + 25 - (c.toLowerCase().charCodeAt(0) - 97))) : "Usage: .atbash hello")
+  },
+  {
+    name: "urlencode",
+    category: "Encoding / Crypto",
+    description: "URL-encode a string.",
+    run: async ctx => ctx.reply(ctx.args ? encodeURIComponent(ctx.args) : "Usage: .urlencode hello world")
+  },
+  {
+    name: "urldecode",
+    category: "Encoding / Crypto",
+    description: "Decode URL-encoded text.",
+    run: async ctx => {
+      if (!ctx.args) return ctx.reply("Usage: .urldecode hello%20world");
+      try { await ctx.reply(decodeURIComponent(ctx.args)); }
+      catch { await ctx.reply("Invalid URL-encoded text."); }
+    }
+  },
+
 ];
 
 export default commands;
