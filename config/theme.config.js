@@ -13,6 +13,11 @@ export default Object.freeze({
 
   sections: [
     {
+      key: "Cyber Security",
+      title: "⚡ 𝗖𝗬𝗕𝗘𝗥 𝗦𝗘𝗖𝗨𝗥𝗜𝗧𝗬",
+      categories: ["Cyber Security"]
+    },
+    {
       key: "General",
       title: "⛧ 𝗚𝗘𝗡𝗘𝗥𝗔𝗟",
       categories: ["General"]
