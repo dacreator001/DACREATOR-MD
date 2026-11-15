@@ -2,7 +2,7 @@ import { domainToASCII } from "node:url";
 import dns from "node:dns/promises";
 import net from "node:net";
 
-const header = "『⚡』𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥-𝗠𝗗 | 𝗖𝗬𝗕𝗘𝗥";
+const header = "『⚡』𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥 𝗗𝗔𝗘𝗠𝗢𝗡 | 𝗖𝗬𝗕𝗘𝗥";
 const say = (ctx, title, body) => ctx.reply(header + "\n\n*"+title+"*\n"+body);
 const arg = ctx => String(ctx.args || "").trim();
 const limit = (s,n=2500) => String(s).slice(0,n);
@@ -32,7 +32,7 @@ const request = async (value,method="GET") => {
   const controller=new AbortController();
   const timer=setTimeout(()=>controller.abort(),7000);
   try {
-    const res=await fetch(u,{method,redirect:"manual",signal:controller.signal,headers:{"User-Agent":"DACREATOR-MD-Security-Audit/1.0"}});
+    const res=await fetch(u,{method,redirect:"manual",signal:controller.signal,headers:{"User-Agent":"DACREATOR DAEMON-Security-Audit/1.0"}});
     return res;
   } finally {clearTimeout(timer);}
 };
@@ -88,7 +88,7 @@ const cvss=command("cvss","CVSS vector guidance",ctx=>say(ctx,"CVSS","Use the FI
 const severity=command("severity","Severity classification reference",ctx=>say(ctx,"SEVERITY","Informational: no demonstrated impact\nLow: limited impact\nMedium: meaningful constrained impact\nHigh: significant compromise\nCritical: broad or severe compromise\nActual severity depends on verified context and program policy."));
 const report=command("report","Generate a safe bug bounty report template",ctx=>say(ctx,"BUG BOUNTY REPORT","Title:\nProgram and authorized asset:\nScope reference:\nSummary:\nPrerequisites:\nReproduction (non-destructive):\nExpected result:\nObserved result:\nSanitized evidence:\nImpact:\nSuggested fix:\nDisclosure timeline:"));
 const asn=command("asn","Public ASN lookup guidance",ctx=>say(ctx,"ASN LOOKUP","For public ASN and organization records, see https://bgp.he.net/ or https://stat.ripe.net/\nQuery: "+limit(arg(ctx)||"not supplied",160)));
-const cybermenu=command("cybermenu","List DACREATOR-MD cybersecurity commands",ctx=>say(ctx,"𝗖𝗬𝗕𝗘𝗥 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦","*Passive audits*\n.headers URL  .cors URL  .csp URL\n*Recon guides*\n.scope .subdomain .wayback .params .js .endpoints .links .techstack\n*Assessment guides*\n.xss .sqli .lfi .ssrf .openredirect .idor .xxe .ssti\n*OSINT guides*\n.email .github .dork .leaks .asn\n*Utilities*\n.encode .payload .bypass .wordlist\n*Reporting*\n.report .cvss .severity .poc\n\nGuides do not execute exploits. HTTPS header checks are passive."));
+const cybermenu=command("cybermenu","List DACREATOR DAEMON cybersecurity commands",ctx=>say(ctx,"𝗖𝗬𝗕𝗘𝗥 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦","*Passive audits*\n.headers URL  .cors URL  .csp URL\n*Recon guides*\n.scope .subdomain .wayback .params .js .endpoints .links .techstack\n*Assessment guides*\n.xss .sqli .lfi .ssrf .openredirect .idor .xxe .ssti\n*OSINT guides*\n.email .github .dork .leaks .asn\n*Utilities*\n.encode .payload .bypass .wordlist\n*Reporting*\n.report .cvss .severity .poc\n\nGuides do not execute exploits. HTTPS header checks are passive."));
 export default [
  cybermenu,
  command("headers","Passive HTTPS security headers audit",ctx=>headerAudit(ctx,"headers")),
