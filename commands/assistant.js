@@ -11,7 +11,7 @@ export default {
     const choice = String(action || "status").toLowerCase();
     if (choice === "on" || choice === "off") {
       await setAssistantSettings({ enabled: choice === "on" });
-      return ctx.reply("👿 Auto-assistant " + (choice === "on" ? "enabled" : "disabled") + ". Replies to incoming private chats at most once every 30 minutes per contact.");
+      return ctx.reply("👿 Auto-assistant " + (choice === "on" ? "enabled" : "disabled") + ". Replies to incoming private chats at most once every 5 minutes per contact.");
     }
     if (choice === "style") {
       const style = String(rest[0] || "").toLowerCase();
@@ -38,7 +38,7 @@ export default {
       "Style: " + settings.style,
       "Custom reply: " + (settings.message ? "Configured" : "Default"),
       "Scope: Private incoming chats only",
-      "Limit: One reply per contact every 30 minutes",
+      "Limit: One reply per contact every 5 minutes",
       "",
       ".assistant on | off",
       ".assistant style casual",
