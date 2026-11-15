@@ -408,8 +408,7 @@ const commands = [
           (ctx.owner ? "YES 👑" : "NO")
       ]));
     }
-  }
-
+  },
 
   // Additional safe dot-prefix utilities.
   {
