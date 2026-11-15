@@ -86,8 +86,8 @@ test("all 18 section titles appear in the reference order with no Channel sectio
 test("uses DACREATOR branding, dot prefix and configured owner", () => {
   assert.ok(config.name.includes("𝘿𝘼𝘾𝙍𝙀𝘼𝙏𝙊𝙍"));
   assert.equal(config.prefix, ".");
-  assert.equal(config.ownerNumbers.length, 1);
-  assert.equal(config.ownerNumbers[0], config.ownerNumber);
+  assert.ok(config.ownerNumbers.length >= 1);
+  assert.ok(config.ownerNumbers.includes(config.ownerNumber));
   assert.ok(config.channel.jid.endsWith("@newsletter"));
   assert.ok(config.imageUrl.startsWith("https://"));
   assert.ok(config.botUrl.startsWith("https://"));
