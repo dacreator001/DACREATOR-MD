@@ -412,12 +412,6 @@ const commands = [
 
   // Additional safe dot-prefix utilities.
   {
-    name: "roll",
-    category: "Normal",
-    description: "Roll a virtual six-sided die.",
-    run: async ctx => ctx.reply("🎲 You rolled " + (Math.floor(Math.random() * 6) + 1))
-  },
-  {
     name: "quote",
     category: "Normal",
     description: "Display an original motivational quote.",
@@ -429,12 +423,6 @@ const commands = [
       ];
       await ctx.reply("💬 " + quotes[Math.floor(Math.random() * quotes.length)]);
     }
-  },
-  {
-    name: "joke",
-    category: "Normal",
-    description: "Tell a clean programming joke.",
-    run: async ctx => ctx.reply("Why do programmers love dark mode? Because light attracts bugs!")
   },
   {
     name: "fliptext",
