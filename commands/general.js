@@ -22,10 +22,13 @@ const gothic = text => {
 
 function panel(title, rows = []) {
   return [
-    "╔═══〔 ⛧ " + gothic(title) + " ⛧ 〕═══╗",
-    ...rows.map(row => "║ ☠ " + row),
-    "╚══════════════╝",
+    "╭━━━〔 👿 " + gothic(title) + " 〕━━━╮",
+    "┃ ⛧ DACREATOR DAEMON",
+    "╰━━━━━━━━━━━━━━━━━━━━╯",
     "",
+    ...rows.map(row => "◈ " + row),
+    "",
+    "━━━━━━━━━━━━━━━━━━━━",
     FOOTER
   ].join("\n");
 }
