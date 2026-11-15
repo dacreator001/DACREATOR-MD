@@ -412,12 +412,6 @@ const commands = [
 
   // Additional safe dot-prefix utilities.
   {
-    name: "flip",
-    category: "Normal",
-    description: "Flip a virtual coin.",
-    run: async ctx => ctx.reply(Math.random() < 0.5 ? "🪙 Heads" : "🪙 Tails")
-  },
-  {
     name: "roll",
     category: "Normal",
     description: "Roll a virtual six-sided die.",
