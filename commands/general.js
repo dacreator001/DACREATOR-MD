@@ -2,11 +2,11 @@
 import { buildMenu } from "../lib/menu.js";
 
 /* ═══════════════════════════════════════
-   𓆩⛧𓆪 DACREATOR-MD — INFERNAL EDITION
+   𓆩⛧𓆪 DACREATOR DAEMON — COMMAND CENTER
    ♛ GENERAL COMMAND SYSTEM
    ═══════════════════════════════════════ */
 
-const BRAND = "『⚡』𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥-𝗠𝗗";
+const BRAND = "『👿』 𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥 𝗗𝗔𝗘𝗠𝗢𝗡";
 const FOOTER = "♛ 𝗣𝗢𝗪𝗘𝗥𝗘𝗗 𝗕𝗬 𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥 ♛";
 const GITHUB = "https://github.com/dacreator001/DACREATOR-MD";
 
@@ -85,7 +85,7 @@ const commands = [
     name: "menu",
     aliases: ["helpme"],
     category: "General",
-    description: "Open the infernal DACREATOR-MD command menu.",
+    description: "Open the infernal DACREATOR DAEMON command menu.",
 
     run: async ctx => {
       const menu = buildMenu({
@@ -100,14 +100,18 @@ const commands = [
             image: { url: ctx.config.imageUrl },
 
             caption: [
-              BRAND,
+              "╭━━━〔 👿 𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥 𝗗𝗔𝗘𝗠𝗢𝗡 〕━━━╮",
+              "┃ ⛧ 𝗧𝗛𝗘 𝗗𝗔𝗥𝗞 𝗦𝗬𝗦𝗧𝗘𝗠",
+              "╰━━━━━━━━━━━━━━━━━━━━╯",
               "",
-              "╔═══〔 ⛧ 𝗕𝗢𝗧 𝗦𝗬𝗦𝗧𝗘𝗠 ⛧ 〕═══╗",
-              "║ ☠ 𝗦𝗧𝗔𝗧𝗨𝗦: " +
-                (ctx.connectionOpen ? "ONLINE 🟢" : "CONNECTING 🟡"),
-              "║ ⚡ 𝗣𝗥𝗘𝗙𝗜𝗫: " + (ctx.config.prefix || "."),
-              "║ ♛ 𝗢𝗪𝗡𝗘𝗥: " + ctx.config.ownerName,
-              "╚══════════════╝",
+              "◉ 𝗦𝗧𝗔𝗧𝗨𝗦  ·  " + (ctx.connectionOpen ? "ONLINE 🟢" : "CONNECTING 🟡"),
+              "⚡ 𝗣𝗥𝗘𝗙𝗜𝗫  ·  " + (ctx.config.prefix || "."),
+              "♛ 𝗢𝗪𝗡𝗘𝗥  ·  " + ctx.config.ownerName,
+              "☠ 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦  ·  " + (ctx.commands || []).filter(command => !command.hidden).length,
+              "",
+              "𖤐 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗖𝗘𝗡𝗧𝗘𝗥",
+              "Browse the organized menu below.",
+              "Use " + (ctx.config.prefix || ".") + "help for the alphabetical archive.",
               "",
               "⛧ 𝗢𝗙𝗙𝗜𝗖𝗜𝗔𝗟 𝗣𝗢𝗥𝗧𝗔𝗟",
               ctx.config.botUrl || GITHUB,
@@ -118,7 +122,7 @@ const commands = [
 
         } catch (error) {
           console.warn(
-            "DACREATOR-MD artwork unavailable:",
+            "DACREATOR DAEMON artwork unavailable:",
             error?.message || error
           );
         }
@@ -248,7 +252,7 @@ const commands = [
   {
     name: "owner",
     category: "General",
-    description: "Display the DACREATOR-MD owner details.",
+    description: "Display the DACREATOR DAEMON owner details.",
 
     run: async ctx => {
       const number = ownerNumber(ctx.config);
