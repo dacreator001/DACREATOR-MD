@@ -1,8 +1,8 @@
 {
-  "name": "『⚡』𝘿𝘼𝘾𝙍𝙀𝘼𝙏𝙊𝙍-𝙈𝘿 〆",
+  "name": "dacreator-daemon",
   "version": "1.0.0",
   "private": false,
-  "description": "𓆩⛧𓆪 𝕯𝕬𝕮𝕽𝕰𝕬𝕿𝕺𝕽-𝕸𝕯 ☠︎ | ⚡ AI • Automation • Power | ♛ Built by DACREATOR.",
+  "description": "𓆩⛧𓆪 𝕯𝕬𝕮𝕽𝕰𝕬𝕿𝕺𝕽 𝕯𝕬𝕰𝕸𝕺𝕹 ☠︎ | ⚡ AI • Automation • Power | ♛ Built by DACREATOR.",
   "type": "module",
   "main": "index.js",
   "scripts": {
