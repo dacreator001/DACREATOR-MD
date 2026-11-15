@@ -86,14 +86,14 @@ function mediaKind(item, extension) {
 async function sendDownloadedMedia(ctx, url, title, item = {}) {
   const extension = extensionOf(item, url);
   const kind = mediaKind(item, extension);
-  const cleanTitle = String(title || "FEI XMD download").replace(/[\r\n*_\x60~]/g, " ").trim().slice(0, 150);
+  const cleanTitle = String(title || "DACREATOR-MD download").replace(/[\r\n*_\x60~]/g, " ").trim().slice(0, 150);
   const details = [
     "✅ *" + cleanTitle + "*",
     item.quality ? "✨ Quality: " + String(item.quality).slice(0, 50) : "",
     item.size ? "📦 Size: " + String(item.size).slice(0, 50) : ""
   ].filter(Boolean).join("\n");
   const caption = unicodeBox("📥 DOWNLOAD READY", details, { footer: true });
-  const fileName = safeFileName(cleanTitle, "FEI-XMD-download") + (extension ? "." + extension : "");
+  const fileName = safeFileName(cleanTitle, "DACREATOR-MD-download") + (extension ? "." + extension : "");
 
   try {
     if (kind === "audio") {
