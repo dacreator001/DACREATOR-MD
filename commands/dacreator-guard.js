@@ -7,7 +7,7 @@ async function requireAdmin(ctx,bot=false){
  if(!String(ctx.jid).endsWith("@g.us")){await ctx.reply("⛔ Group command only.");return null;}
  const metadata=await ctx.sock.groupMetadata(ctx.jid),members=metadata.participants||[];
  if(!ctx.owner&&!members.some(p=>admin(p)&&ids(p).includes(normalizeJid(ctx.senderJid)))){await ctx.reply("⛔ Group admins only.");return null;}
- if(bot&&!members.some(p=>admin(p)&&ids(p).some(x=>[ctx.sock.user?.id,ctx.sock.user?.lid].map(normalizeJid).includes(x)))){await ctx.reply("⛔ Make DACREATOR-MD a group admin first.");return null;}
+ if(bot&&!members.some(p=>admin(p)&&ids(p).some(x=>[ctx.sock.user?.id,ctx.sock.user?.lid].map(normalizeJid).includes(x)))){await ctx.reply("⛔ Make DACREATOR DAEMON a group admin first.");return null;}
  return members;
 }
 function target(ctx){
@@ -65,10 +65,10 @@ export default [
  }),
  {name:"crash",category:"Owner",description:"Run a harmless error-handling diagnostic",run:async ctx=>{
   if(!ctx.owner)return ctx.reply("⛔ Owner only.");
-  try{throw new Error("DACREATOR-MD controlled diagnostic");}catch(error){return ctx.reply("⚡ *CRASH DIAGNOSTIC*\nError handling: PASS\nBot remained online.\nNo messages or accounts affected.");}
+  try{throw new Error("DACREATOR DAEMON controlled diagnostic");}catch(error){return ctx.reply("⚡ *CRASH DIAGNOSTIC*\nError handling: PASS\nBot remained online.\nNo messages or accounts affected.");}
  }},
  {name:"crashstatus",category:"Owner",description:"Show bot connection diagnostic",run:async ctx=>{
   if(!ctx.owner)return ctx.reply("⛔ Owner only.");
-  return ctx.reply("♛ *DACREATOR-MD STATUS*\nSession: "+ctx.sessionId+"\nConnected: "+Boolean(ctx.connectionOpen)+"\nMode: "+ctx.mode+"\nCommands loaded: "+ctx.commands.length);
+  return ctx.reply("♛ *DACREATOR DAEMON STATUS*\nSession: "+ctx.sessionId+"\nConnected: "+Boolean(ctx.connectionOpen)+"\nMode: "+ctx.mode+"\nCommands loaded: "+ctx.commands.length);
  }}
 ];
