@@ -130,7 +130,7 @@ export default [
         if (!await requireGroupAdmin(ctx, action === "on")) return;
         await groupModeration.setSetting(ctx.jid, "warnlinks", action === "on");
         await ctx.reply(action === "on"
-          ? "✅ Automatic link warnings enabled. Non-admin link posts are deleted and recorded. The third warning triggers a removal request."
+          ? "✅ Automatic link warnings enabled. Non-admin link posts are deleted and recorded. The configured warning threshold triggers a removal request."
           : "🔕 Automatic link warnings disabled for this group.");
         return;
       }
@@ -150,7 +150,8 @@ export default [
       const lines = [];
       for (const target of selected) {
         const count = await groupModeration.addWarning(ctx.jid, target);
-        lines.push("@" + numberFromJid(target) + ": warning " + count + "/3" +
+        const settings = await groupModeration.getSettings(ctx.jid);
+        lines.push("@" + numberFromJid(target) + ": warning " + count + "/" + settings.warnlimit +
           (reason ? " — " + reason : ""));
       }
       await ctx.send({ text: "⚠️ *WARNING RECORDED*\n" + lines.join("\n"), mentions: selected });
