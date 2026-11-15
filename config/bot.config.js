@@ -29,5 +29,5 @@ export default Object.freeze({
     process.env.BOT_IMAGE_URL ||
     "https://res.cloudinary.com/dqqyvozdw/image/upload/v1794707287/qy9dhrv1k4wnndouh3fb.png"
   ).trim(),
-  botUrl: String(process.env.BOT_URL || "https://fei-xmd.benfeilab.com").trim()
+  botUrl: String(process.env.BOT_URL || "https://github.com/dacreator001/DACREATOR-MD").trim()
 });
