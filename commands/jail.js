@@ -24,7 +24,7 @@ export default [
   if(!participant)return ctx.reply("Member not found in this group.");
   if(admin(participant)||ids(participant).some(x=>[ctx.sock.user?.id,ctx.sock.user?.lid].map(normalizeJid).includes(x)))return ctx.reply("Cannot jail an admin or the bot.");
   const self=[ctx.sock.user?.id,ctx.sock.user?.lid].map(normalizeJid);
-  if(!members.some(p=>admin(p)&&ids(p).some(x=>self.includes(x))))return ctx.reply("Make DACREATOR-MD a group admin first.");
+  if(!members.some(p=>admin(p)&&ids(p).some(x=>self.includes(x))))return ctx.reply("Make DACREATOR DAEMON a group admin first.");
   await jailRecords.add(ctx.jid,member,ctx.senderJid);
   return ctx.send({text:"🔒 Jailed @"+numberFromJid(member)+". Their new messages will be deleted while the bot is online and an admin.",mentions:[member]});
  }},
