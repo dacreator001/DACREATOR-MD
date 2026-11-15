@@ -56,10 +56,10 @@ export default {
   name: "gcstatusdm",
   aliases: ["dmgcstatus"],
   category: "Status",
-  description: "Post a group status from a private chat with FEI XMD.",
+  description: "Post a group status from a private chat with DACREATOR-MD.",
   run: async ctx => {
     if (String(ctx.jid || "").endsWith("@g.us")) {
-      await ctx.reply("Use " + ctx.config.prefix + "gcstatusdm in a private chat with FEI XMD.");
+      await ctx.reply("Use " + ctx.config.prefix + "gcstatusdm in a private chat with DACREATOR-MD.");
       return;
     }
     if (!ctx.owner) {
