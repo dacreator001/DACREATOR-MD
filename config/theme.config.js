@@ -1,50 +1,55 @@
 
 export default Object.freeze({
-  botTitle: "𓆩⛧𓆪 𝕯𝕬𝕮𝕽𝕰𝕬𝕿𝕺𝕽-𝕸𝕯 ☠︎",
+  botTitle: "『👿』𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥 𝗗𝗔𝗘𝗠𝗢𝗡",
 
   menu: {
-    top: "╔═══〔 ⛧ ",
-    titleEnd: " ⛧ 〕═══╗",
-    infoLine: "║ ☠ ",
-    itemLine: "║ ⛧│ ",
-    blankLine: "║",
-    bottom: "╚══════════════╝"
+    top: "━━━〔 ⚡ ",
+    titleEnd: " 〕━━━",
+    infoLine: "◈ ",
+    itemLine: "◈ ",
+    blankLine: "",
+    bottom: "━━━━━━━━━━━━━━━━"
   },
 
   sections: [
     {
+      key: "Cyber Security",
+      title: "⚡ 𝗖𝗬𝗕𝗘𝗥 𝗦𝗘𝗖𝗨𝗥𝗜𝗧𝗬",
+      categories: ["Cyber Security"]
+    },
+    {
       key: "General",
-      title: "⛧ 𝕲𝕰𝕹𝕰𝕽𝕬𝕷",
+      title: "⛧ 𝗚𝗘𝗡𝗘𝗥𝗔𝗟",
       categories: ["General"]
     },
     {
       key: "AI & Chat",
-      title: "𖤐 𝕬𝕴 𝕮𝕳𝕬𝕿",
+      title: "𖤐 𝗔𝗜 𝗖𝗛𝗔𝗧",
       categories: ["AI & Chat"]
     },
     {
       key: "AI Media",
-      title: "☠ 𝕬𝕴 𝕸𝕰𝕯𝕴𝕬",
+      title: "☠ 𝗔𝗜 𝗠𝗘𝗗𝗜𝗔",
       categories: ["AI Media"]
     },
     {
       key: "News Desk",
-      title: "⚔ 𝕹𝕰𝖂𝕾 𝕯𝕰𝕾𝕶",
+      title: "⚔ 𝗡𝗘𝗪𝗦 𝗗𝗘𝗦𝗞",
       categories: ["News"]
     },
     {
       key: "Group Tools",
-      title: "♛ 𝕲𝕽𝕺𝖀𝕻 𝕿𝕺𝕺𝕷𝕾",
+      title: "♛ 𝗚𝗥𝗢𝗨𝗣 𝗧𝗢𝗢𝗟𝗦",
       categories: ["Group"]
     },
     {
       key: "Downloads",
-      title: "𖤍 𝕯𝕺𝖂𝕹𝕷𝕺𝕬𝕯𝕾",
+      title: "𖤍 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗦",
       categories: ["Downloads"]
     },
     {
       key: "Fun Games",
-      title: "⚡ 𝕱𝖀𝕹 𝕲𝕬𝕸𝕰𝕾",
+      title: "⚡ 𝗙𝗨𝗡 𝗚𝗔𝗠𝗘𝗦",
       commandNames: [
         "calc", "poll", "coinflip", "dice",
         "8ball", "choose", "trivia", "riddle",
@@ -53,18 +58,18 @@ export default Object.freeze({
     },
     {
       key: "Fun Mix",
-      title: "☯ 𝕱𝖀𝕹 𝕸𝕴𝖃",
+      title: "☯ 𝗙𝗨𝗡 𝗠𝗜𝗫",
       categories: ["Fun"],
       excludeNames: ["pokemon"]
     },
     {
       key: "Anime Info",
-      title: "𖤐 𝕬𝕹𝕴𝕸𝕰 𝕴𝕹𝕱𝕺",
+      title: "𖤐 𝗔𝗡𝗜𝗠𝗘 𝗜𝗡𝗙𝗢",
       categories: ["Anime Info", "Anime Rankings"]
     },
     {
       key: "Anime Art",
-      title: "⛧ 𝕬𝕹𝕴𝕸𝕰 𝕬𝕽𝕿",
+      title: "⛧ 𝗔𝗡𝗜𝗠𝗘 𝗔𝗥𝗧",
       categories: [
         "Anime Random",
         "Anime Tools",
@@ -73,7 +78,7 @@ export default Object.freeze({
     },
     {
       key: "Anime GIFs",
-      title: "☠ 𝕬𝕹𝕴𝕸𝕰 𝕲𝕴𝕱𝕾",
+      title: "☠ 𝗔𝗡𝗜𝗠𝗘 𝗚𝗜𝗙𝗦",
       commandNames: [
         "angry", "baka", "bleh", "blowkiss",
         "blush", "bored", "carry", "clap",
@@ -84,7 +89,7 @@ export default Object.freeze({
     },
     {
       key: "Anime Reactions",
-      title: "𓆩♡𓆪 𝕬𝕹𝕴𝕸𝕰 𝕽𝕰𝕬𝕮𝕿𝕴𝕺𝕹𝕾",
+      title: "𓆩♡𓆪 𝗔𝗡𝗜𝗠𝗘 𝗥𝗘𝗔𝗖𝗧𝗜𝗢𝗡𝗦",
       commandNames: [
         "hug", "kabedon", "kiss", "lappillow",
         "laugh", "lurk", "nod", "nom",
@@ -95,7 +100,7 @@ export default Object.freeze({
     },
     {
       key: "Anime Moves",
-      title: "⚔ 𝕬𝕹𝕴𝕸𝕰 𝕸𝕺𝖁𝕰𝕾",
+      title: "⚔ 𝗔𝗡𝗜𝗠𝗘 𝗠𝗢𝗩𝗘𝗦",
       commandNames: [
         "shocked", "shrug", "sip", "sleep",
         "smile", "smug", "spin", "stare",
@@ -106,27 +111,27 @@ export default Object.freeze({
     },
     {
       key: "Canvas Tools",
-      title: "𖤍 𝕮𝕬𝕹𝖁𝕬𝕾 𝕿𝕺𝕺𝕷𝕾",
+      title: "𖤍 𝗖𝗔𝗡𝗩𝗔𝗦 𝗧𝗢𝗢𝗟𝗦",
       categories: ["Canvas"]
     },
     {
       key: "Media Tools",
-      title: "⛓ 𝕸𝕰𝕯𝕴𝕬 𝕿𝕺𝕺𝕷𝕾",
+      title: "⛓ 𝗠𝗘𝗗𝗜𝗔 𝗧𝗢𝗢𝗟𝗦",
       categories: ["Media & Tools"]
     },
     {
       key: "Chat Privacy",
-      title: "☠ 𝕮𝕳𝕬𝕿 𝕻𝕽𝕴𝖁𝕬𝕮𝖄",
+      title: "☠ 𝗖𝗛𝗔𝗧 𝗣𝗥𝗜𝗩𝗔𝗖𝗬",
       categories: ["Chat & Privacy"]
     },
     {
       key: "Status Tools",
-      title: "𖤐 𝕾𝕿𝕬𝕿𝖀𝕾 𝕿𝕺𝕺𝕷𝕾",
+      title: "𖤐 𝗦𝗧𝗔𝗧𝗨𝗦 𝗧𝗢𝗢𝗟𝗦",
       categories: ["Status"]
     },
     {
       key: "Owner Tools",
-      title: "♛ 𝕺𝖂𝕹𝕰𝕽 𝕿𝕺𝕺𝕷𝕾",
+      title: "♛ 𝗢𝗪𝗡𝗘𝗥 𝗧𝗢𝗢𝗟𝗦",
       categories: ["Owner"]
     }
   ]

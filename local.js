@@ -39,13 +39,13 @@ export async function runLocalTerminal(options = {}) {
   async function shutdown(signal = "") {
     if (shuttingDown) return;
     shuttingDown = true;
-    if (signal) console.log("\nStopping FEI XMD (" + signal + ")...");
+    if (signal) console.log("\nStopping DACREATOR-MD (" + signal + ")...");
     if (rl) {
       rl.close();
       rl = null;
     }
     await runtime.stop().catch(error => {
-      console.warn("Could not stop FEI XMD cleanly:", error && error.message || error);
+      console.warn("Could not stop DACREATOR-MD cleanly:", error && error.message || error);
     });
   }
 
@@ -60,7 +60,7 @@ export async function runLocalTerminal(options = {}) {
   process.once("SIGTERM", onSigterm);
 
   runtime.on("connected", status => {
-    console.log("\nFEI XMD connected" + (status.phoneNumber ? " as " + status.phoneNumber : "") + ".");
+    console.log("\nDACREATOR-MD connected" + (status.phoneNumber ? " as " + status.phoneNumber : "") + ".");
     console.log("The runtime is ready. Command modules will be added in the next development step.");
   });
   runtime.on("reconnecting", info => {
@@ -70,11 +70,11 @@ export async function runLocalTerminal(options = {}) {
     console.error("This WhatsApp session was logged out. Remove the local auth folder and pair again.");
   });
   runtime.on("runtimeError", error => {
-    console.error("FEI XMD runtime error:", error && error.message || error);
+    console.error("DACREATOR-MD runtime error:", error && error.message || error);
   });
 
   try {
-    console.log("\n╭━━〔 FEI XMD · LOCAL RUNTIME 〕━━┈⊷");
+    console.log("\n╭━━〔 DACREATOR-MD · LOCAL RUNTIME 〕━━┈⊷");
     console.log("Baileys: @whiskeysockets/baileys (official npm package)");
     console.log("Session directory: " + sessionDirectory);
     console.log("Loaded " + commands.length + " command module(s).");
@@ -118,7 +118,7 @@ export async function runLocalTerminal(options = {}) {
       console.log("An existing local WhatsApp session was found. Reconnecting without requesting another code...");
     }
 
-    console.log("FEI XMD is running. Keep this process active while the WhatsApp session is connected.");
+    console.log("DACREATOR-MD is running. Keep this process active while the WhatsApp session is connected.");
     return runtime;
   } catch (error) {
     await shutdown();

@@ -49,7 +49,7 @@ async function requireGroupAdmin(ctx, requireBotAdmin = false) {
       isAdmin(participant) && participantIds(participant).some(id => selfIds.includes(id))
     );
     if (!botIsAdmin) {
-      await ctx.reply("⛔ FEI XMD must be a group admin to enforce link moderation.");
+      await ctx.reply("⛔ DACREATOR-MD must be a group admin to enforce link moderation.");
       return null;
     }
   }
@@ -106,7 +106,7 @@ export default [
 
       await groupModeration.setSetting(ctx.jid, "antilink", value === "on");
       await ctx.reply(value === "on"
-        ? "✅ Antilink enabled. Links from non-admin members will be deleted when FEI XMD has admin permission."
+        ? "✅ Antilink enabled. Links from non-admin members will be deleted when DACREATOR-MD has admin permission."
         : "🔕 Antilink disabled for this group.");
     }
   },
@@ -130,7 +130,7 @@ export default [
         if (!await requireGroupAdmin(ctx, action === "on")) return;
         await groupModeration.setSetting(ctx.jid, "warnlinks", action === "on");
         await ctx.reply(action === "on"
-          ? "✅ Automatic link warnings enabled. Non-admin link posts are deleted and recorded. The third warning triggers a removal request."
+          ? "✅ Automatic link warnings enabled. Non-admin link posts are deleted and recorded. The configured warning threshold triggers a removal request."
           : "🔕 Automatic link warnings disabled for this group.");
         return;
       }
@@ -150,7 +150,8 @@ export default [
       const lines = [];
       for (const target of selected) {
         const count = await groupModeration.addWarning(ctx.jid, target);
-        lines.push("@" + numberFromJid(target) + ": warning " + count + "/3" +
+        const settings = await groupModeration.getSettings(ctx.jid);
+        lines.push("@" + numberFromJid(target) + ": warning " + count + "/" + settings.warnlimit +
           (reason ? " — " + reason : ""));
       }
       await ctx.send({ text: "⚠️ *WARNING RECORDED*\n" + lines.join("\n"), mentions: selected });

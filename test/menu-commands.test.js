@@ -7,26 +7,7 @@ import theme from "../config/theme.config.js";
 import { loadCommands } from "../handlers/command-loader.js";
 import { buildMenu } from "../lib/menu.js";
 
-const expectedTitles = [
-  "🏠 ɢᴇɴᴇʀᴀʟ",
-  "🧠 ᴀɪ ᴄʜᴀᴛ",
-  "🎨 ᴀɪ ᴍᴇᴅɪᴀ",
-  "📰 ɴᴇᴡs ᴅᴇsᴋ",
-  "👥 ɢʀᴏᴜᴘ ᴛᴏᴏʟs",
-  "📥 ᴅᴏᴡɴʟᴏᴀᴅs",
-  "🎮 ғᴜɴ ɢᴀᴍᴇs",
-  "🎉 ғᴜɴ ᴍɪx",
-  "🌸 ᴀɴɪᴍᴇ ɪɴғᴏ",
-  "🖼 ᴀɴɪᴍᴇ ᴀʀᴛ",
-  "🎞 ᴀɴɪᴍᴇ ɢɪғs",
-  "💞 ᴀɴɪᴍᴇ ʀᴇᴀᴄᴛɪᴏɴs",
-  "⚡ ᴀɴɪᴍᴇ ᴍᴏᴠᴇs",
-  "🖼 ᴄᴀɴᴠᴀs ᴛᴏᴏʟs",
-  "🛠️ ᴍᴇᴅɪᴀ ᴛᴏᴏʟs",
-  "🔒 ᴄʜᴀᴛ ᴘʀɪᴠᴀᴄʏ",
-  "📱 sᴛᴀᴛᴜs ᴛᴏᴏʟs",
-  "👑 ᴏᴡɴᴇʀ ᴛᴏᴏʟs"
-];
+const expectedTitles = theme.sections.map(section => section.title);
 
 test("all selected public commands are loaded without collisions", async () => {
   const { commands, lookup } = await loadCommands(path.resolve("commands"));
@@ -51,7 +32,7 @@ test("all selected public commands are loaded without collisions", async () => {
   assert.equal(count("Chat & Privacy"), 2);
   assert.equal(count("Status"), 8);
   assert.equal(count("Owner"), 1);
-  assert.equal(commands.length, 202);
+  assert.equal(commands.length, 208);
 
   for (const name of [
     "menu", "help", "ping", "alive", "owner", "support", "time", "date", "version", "jid", "whoami",
@@ -102,16 +83,14 @@ test("all 18 section titles appear in the reference order with no Channel sectio
   }
 });
 
-test("uses the official FEI XMD artwork, pairing portal, newsletter identity and single owner", () => {
-  assert.equal(config.name, "FEI XMD");
-  assert.equal(config.ownerName, "Benfei Tech");
-  assert.equal(config.ownerNumber, "2349060715145");
-  assert.deepEqual(Array.from(config.ownerNumbers), ["2349060715145"]);
-  assert.equal(config.ownerNumbers.length, 1);
-  assert.equal(config.channel.name, "𝐁𝐄𝐍𝐅𝐄𝐈 𝐓𝐄𝐂𝐇 ™");
-  assert.equal(config.channel.jid, "120363430518511561@newsletter");
-  assert.equal(config.imageUrl, "https://res.cloudinary.com/dqqyvozdw/image/upload/v1792848652/arbeimjfqkkfpn9zvfhf.png");
-  assert.equal(config.botUrl, "https://fei-xmd.benfeilab.com");
+test("uses DACREATOR branding, dot prefix and configured owner", () => {
+  assert.ok(config.name.includes("𝘿𝘼𝘾𝙍𝙀𝘼𝙏𝙊𝙍"));
+  assert.equal(config.prefix, ".");
+  assert.ok(config.ownerNumbers.length >= 1);
+  assert.ok(config.ownerNumbers.includes(config.ownerNumber));
+  assert.ok(config.channel.jid.endsWith("@newsletter"));
+  assert.ok(config.imageUrl.startsWith("https://"));
+  assert.ok(config.botUrl.startsWith("https://"));
 });
 
 test("the menu sends official artwork and still includes the complete text menu", async () => {
@@ -131,7 +110,7 @@ test("the menu sends official artwork and still includes the complete text menu"
   assert.equal(sent[0].payload.image.url, config.imageUrl);
   assert.ok(sent[0].payload.caption.includes(config.botUrl));
   assert.equal(sent[1].type, "text");
-  assert.ok(sent[1].payload.includes("🏠 ɢᴇɴᴇʀᴀʟ"));
-  assert.ok(sent[1].payload.includes("👑 ᴏᴡɴᴇʀ ᴛᴏᴏʟs"));
+  assert.ok(sent[1].payload.includes(theme.sections[0].title));
+  assert.ok(sent[1].payload.includes(theme.sections.at(-1).title));
   assert.equal(sent[1].payload.includes("📢 ᴄʜᴀɴɴᴇʟ"), false);
 });

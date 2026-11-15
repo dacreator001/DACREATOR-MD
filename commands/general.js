@@ -2,17 +2,17 @@
 import { buildMenu } from "../lib/menu.js";
 
 /* ═══════════════════════════════════════
-   𓆩⛧𓆪 DACREATOR-MD — INFERNAL EDITION
+   𓆩⛧𓆪 DACREATOR DAEMON — COMMAND CENTER
    ♛ GENERAL COMMAND SYSTEM
    ═══════════════════════════════════════ */
 
-const BRAND = "𓆩⛧𓆪 𝕯𝕬𝕮𝕽𝕰𝕬𝕿𝕺𝕽-𝕸𝕯 ☠︎";
-const FOOTER = "♛ 𝕻𝕺𝖂𝕰𝕽𝕰𝕯 𝕭𝖄 𝕯𝕬𝕮𝕽𝕰𝕬𝕿𝕺𝕽 ♛";
+const BRAND = "『👿』 𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥 𝗗𝗔𝗘𝗠𝗢𝗡";
+const FOOTER = "♛ 𝗣𝗢𝗪𝗘𝗥𝗘𝗗 𝗕𝗬 𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥 ♛";
 const GITHUB = "https://github.com/dacreator001/DACREATOR-MD";
 
 const gothic = text => {
   const normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const styled = [..."𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅"];
+  const styled = [..."𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭"];
 
   return String(text).replace(/[A-Z]/gi, char => {
     const index = normal.indexOf(char.toUpperCase());
@@ -22,10 +22,13 @@ const gothic = text => {
 
 function panel(title, rows = []) {
   return [
-    "╔═══〔 ⛧ " + gothic(title) + " ⛧ 〕═══╗",
-    ...rows.map(row => "║ ☠ " + row),
-    "╚══════════════╝",
+    "╭━━━〔 👿 " + gothic(title) + " 〕━━━╮",
+    "┃ ⛧ DACREATOR DAEMON",
+    "╰━━━━━━━━━━━━━━━━━━━━╯",
     "",
+    ...rows.map(row => "◈ " + row),
+    "",
+    "━━━━━━━━━━━━━━━━━━━━",
     FOOTER
   ].join("\n");
 }
@@ -85,7 +88,7 @@ const commands = [
     name: "menu",
     aliases: ["helpme"],
     category: "General",
-    description: "Open the infernal DACREATOR-MD command menu.",
+    description: "Open the infernal DACREATOR DAEMON command menu.",
 
     run: async ctx => {
       const menu = buildMenu({
@@ -100,16 +103,20 @@ const commands = [
             image: { url: ctx.config.imageUrl },
 
             caption: [
-              BRAND,
+              "╭━━━〔 👿 𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥 𝗗𝗔𝗘𝗠𝗢𝗡 〕━━━╮",
+              "┃ ⛧ 𝗧𝗛𝗘 𝗗𝗔𝗥𝗞 𝗦𝗬𝗦𝗧𝗘𝗠",
+              "╰━━━━━━━━━━━━━━━━━━━━╯",
               "",
-              "╔═══〔 ⛧ 𝕭𝕺𝕿 𝕾𝖄𝕾𝕿𝕰𝕸 ⛧ 〕═══╗",
-              "║ ☠ 𝕾𝕿𝕬𝕿𝖀𝕾: " +
-                (ctx.connectionOpen ? "ONLINE 🟢" : "CONNECTING 🟡"),
-              "║ ⚡ 𝕻𝕽𝕰𝕱𝕴𝖃: " + (ctx.config.prefix || "."),
-              "║ ♛ 𝕺𝖂𝕹𝕰𝕽: " + ctx.config.ownerName,
-              "╚══════════════╝",
+              "◉ 𝗦𝗧𝗔𝗧𝗨𝗦  ·  " + (ctx.connectionOpen ? "ONLINE 🟢" : "CONNECTING 🟡"),
+              "⚡ 𝗣𝗥𝗘𝗙𝗜𝗫  ·  " + (ctx.config.prefix || "."),
+              "♛ 𝗢𝗪𝗡𝗘𝗥  ·  " + ctx.config.ownerName,
+              "☠ 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦  ·  " + (ctx.commands || []).filter(command => !command.hidden).length,
               "",
-              "⛧ 𝕺𝕱𝕱𝕴𝕮𝕴𝕬𝕷 𝕻𝕺𝕽𝕿𝕬𝕷",
+              "𖤐 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗖𝗘𝗡𝗧𝗘𝗥",
+              "Browse the organized menu below.",
+              "Use " + (ctx.config.prefix || ".") + "help for the alphabetical archive.",
+              "",
+              "⛧ 𝗢𝗙𝗙𝗜𝗖𝗜𝗔𝗟 𝗣𝗢𝗥𝗧𝗔𝗟",
               ctx.config.botUrl || GITHUB,
               "",
               FOOTER
@@ -118,7 +125,7 @@ const commands = [
 
         } catch (error) {
           console.warn(
-            "DACREATOR-MD artwork unavailable:",
+            "DACREATOR DAEMON artwork unavailable:",
             error?.message || error
           );
         }
@@ -149,7 +156,7 @@ const commands = [
         );
 
       const header = [
-        "╔═══〔 ⛧ 𝕮𝕺𝕸𝕸𝕬𝕹𝕯 𝕬𝕽𝕮𝕳𝕴𝖁𝕰 ⛧ 〕═══╗",
+        "╔═══〔 ⛧ 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗔𝗥𝗖𝗛𝗜𝗩𝗘 ⛧ 〕═══╗",
         "║ ☠ " + rows.length + " " + gothic("Registered Commands"),
         "╚══════════════╝",
         ""
@@ -248,7 +255,7 @@ const commands = [
   {
     name: "owner",
     category: "General",
-    description: "Display the DACREATOR-MD owner details.",
+    description: "Display the DACREATOR DAEMON owner details.",
 
     run: async ctx => {
       const number = ownerNumber(ctx.config);
@@ -408,7 +415,56 @@ const commands = [
           (ctx.owner ? "YES 👑" : "NO")
       ]));
     }
-  }
+  },
+
+  // Additional safe dot-prefix utilities.
+  {
+    name: "quote",
+    category: "Normal",
+    description: "Display an original motivational quote.",
+    run: async ctx => {
+      const quotes = [
+        "Progress is built one consistent step at a time.",
+        "Curiosity turns questions into discoveries.",
+        "Practice creates confidence."
+      ];
+      await ctx.reply("💬 " + quotes[Math.floor(Math.random() * quotes.length)]);
+    }
+  },
+  {
+    name: "fliptext",
+    category: "Encoding / Crypto",
+    description: "Reverse the order of characters in text.",
+    run: async ctx => ctx.reply(ctx.args ? [...ctx.args].reverse().join("") : "Usage: .fliptext hello")
+  },
+  {
+    name: "rot13",
+    category: "Encoding / Crypto",
+    description: "Apply ROT13 to letters.",
+    run: async ctx => ctx.reply(ctx.args ? ctx.args.replace(/[a-z]/gi, c => String.fromCharCode(c.charCodeAt(0) + (c.toLowerCase() <= "m" ? 13 : -13))) : "Usage: .rot13 hello")
+  },
+  {
+    name: "atbash",
+    category: "Encoding / Crypto",
+    description: "Apply the Atbash substitution cipher.",
+    run: async ctx => ctx.reply(ctx.args ? ctx.args.replace(/[a-z]/gi, c => String.fromCharCode((c === c.toUpperCase() ? 65 : 97) + 25 - (c.toLowerCase().charCodeAt(0) - 97))) : "Usage: .atbash hello")
+  },
+  {
+    name: "urlencode",
+    category: "Encoding / Crypto",
+    description: "URL-encode a string.",
+    run: async ctx => ctx.reply(ctx.args ? encodeURIComponent(ctx.args) : "Usage: .urlencode hello world")
+  },
+  {
+    name: "urldecode",
+    category: "Encoding / Crypto",
+    description: "Decode URL-encoded text.",
+    run: async ctx => {
+      if (!ctx.args) return ctx.reply("Usage: .urldecode hello%20world");
+      try { await ctx.reply(decodeURIComponent(ctx.args)); }
+      catch { await ctx.reply("Invalid URL-encoded text."); }
+    }
+  },
 
 ];
 
