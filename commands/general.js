@@ -6,13 +6,13 @@ import { buildMenu } from "../lib/menu.js";
    ♛ GENERAL COMMAND SYSTEM
    ═══════════════════════════════════════ */
 
-const BRAND = "𓆩⛧𓆪 𝕯𝕬𝕮𝕽𝕰𝕬𝕿𝕺𝕽-𝕸𝕯 ☠︎";
-const FOOTER = "♛ 𝕻𝕺𝖂𝕰𝕽𝕰𝕯 𝕭𝖄 𝕯𝕬𝕮𝕽𝕰𝕬𝕿𝕺𝕽 ♛";
+const BRAND = "『⚡』𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥-𝗠𝗗";
+const FOOTER = "♛ 𝗣𝗢𝗪𝗘𝗥𝗘𝗗 𝗕𝗬 𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥 ♛";
 const GITHUB = "https://github.com/dacreator001/DACREATOR-MD";
 
 const gothic = text => {
   const normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const styled = [..."𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅"];
+  const styled = [..."𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭"];
 
   return String(text).replace(/[A-Z]/gi, char => {
     const index = normal.indexOf(char.toUpperCase());
@@ -102,14 +102,14 @@ const commands = [
             caption: [
               BRAND,
               "",
-              "╔═══〔 ⛧ 𝕭𝕺𝕿 𝕾𝖄𝕾𝕿𝕰𝕸 ⛧ 〕═══╗",
-              "║ ☠ 𝕾𝕿𝕬𝕿𝖀𝕾: " +
+              "╔═══〔 ⛧ 𝗕𝗢𝗧 𝗦𝗬𝗦𝗧𝗘𝗠 ⛧ 〕═══╗",
+              "║ ☠ 𝗦𝗧𝗔𝗧𝗨𝗦: " +
                 (ctx.connectionOpen ? "ONLINE 🟢" : "CONNECTING 🟡"),
-              "║ ⚡ 𝕻𝕽𝕰𝕱𝕴𝖃: " + (ctx.config.prefix || "."),
-              "║ ♛ 𝕺𝖂𝕹𝕰𝕽: " + ctx.config.ownerName,
+              "║ ⚡ 𝗣𝗥𝗘𝗙𝗜𝗫: " + (ctx.config.prefix || "."),
+              "║ ♛ 𝗢𝗪𝗡𝗘𝗥: " + ctx.config.ownerName,
               "╚══════════════╝",
               "",
-              "⛧ 𝕺𝕱𝕱𝕴𝕮𝕴𝕬𝕷 𝕻𝕺𝕽𝕿𝕬𝕷",
+              "⛧ 𝗢𝗙𝗙𝗜𝗖𝗜𝗔𝗟 𝗣𝗢𝗥𝗧𝗔𝗟",
               ctx.config.botUrl || GITHUB,
               "",
               FOOTER
@@ -149,7 +149,7 @@ const commands = [
         );
 
       const header = [
-        "╔═══〔 ⛧ 𝕮𝕺𝕸𝕸𝕬𝕹𝕯 𝕬𝕽𝕮𝕳𝕴𝖁𝕰 ⛧ 〕═══╗",
+        "╔═══〔 ⛧ 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗔𝗥𝗖𝗛𝗜𝗩𝗘 ⛧ 〕═══╗",
         "║ ☠ " + rows.length + " " + gothic("Registered Commands"),
         "╚══════════════╝",
         ""
