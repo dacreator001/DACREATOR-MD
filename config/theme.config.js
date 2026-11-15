@@ -1,6 +1,6 @@
 
 export default Object.freeze({
-  botTitle: "『⚡』𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥-𝗠𝗗",
+  botTitle: "『👿』𝗗𝗔𝗖𝗥𝗘𝗔𝗧𝗢𝗥 𝗗𝗔𝗘𝗠𝗢𝗡",
 
   menu: {
     top: "━━━〔 ⚡ ",
