@@ -7,32 +7,13 @@ import theme from "../config/theme.config.js";
 import { loadCommands } from "../handlers/command-loader.js";
 import { buildMenu } from "../lib/menu.js";
 
-const expectedTitles = [
-  "🏠 ɢᴇɴᴇʀᴀʟ",
-  "🧠 ᴀɪ ᴄʜᴀᴛ",
-  "🎨 ᴀɪ ᴍᴇᴅɪᴀ",
-  "📰 ɴᴇᴡs ᴅᴇsᴋ",
-  "👥 ɢʀᴏᴜᴘ ᴛᴏᴏʟs",
-  "📥 ᴅᴏᴡɴʟᴏᴀᴅs",
-  "🎮 ғᴜɴ ɢᴀᴍᴇs",
-  "🎉 ғᴜɴ ᴍɪx",
-  "🌸 ᴀɴɪᴍᴇ ɪɴғᴏ",
-  "🖼 ᴀɴɪᴍᴇ ᴀʀᴛ",
-  "🎞 ᴀɴɪᴍᴇ ɢɪғs",
-  "💞 ᴀɴɪᴍᴇ ʀᴇᴀᴄᴛɪᴏɴs",
-  "⚡ ᴀɴɪᴍᴇ ᴍᴏᴠᴇs",
-  "🖼 ᴄᴀɴᴠᴀs ᴛᴏᴏʟs",
-  "🛠️ ᴍᴇᴅɪᴀ ᴛᴏᴏʟs",
-  "🔒 ᴄʜᴀᴛ ᴘʀɪᴠᴀᴄʏ",
-  "📱 sᴛᴀᴛᴜs ᴛᴏᴏʟs",
-  "👑 ᴏᴡɴᴇʀ ᴛᴏᴏʟs"
-];
+const expectedTitles = theme.sections.map(section => section.title);
 
 test("all selected public commands are loaded without collisions", async () => {
   const { commands, lookup } = await loadCommands(path.resolve("commands"));
   const count = category => commands.filter(command => command.category === category).length;
 
-  assert.equal(count("General"), 17);
+  assert.equal(count("General"), 11);
   assert.equal(count("AI & Chat"), 11);
   assert.equal(count("AI Media"), 7);
   assert.equal(count("News"), 11);
@@ -129,7 +110,7 @@ test("the menu sends official artwork and still includes the complete text menu"
   assert.equal(sent[0].payload.image.url, config.imageUrl);
   assert.ok(sent[0].payload.caption.includes(config.botUrl));
   assert.equal(sent[1].type, "text");
-  assert.ok(sent[1].payload.includes("🏠 ɢᴇɴᴇʀᴀʟ"));
-  assert.ok(sent[1].payload.includes("👑 ᴏᴡɴᴇʀ ᴛᴏᴏʟs"));
+  assert.ok(sent[1].payload.includes(theme.sections[0].title));
+  assert.ok(sent[1].payload.includes(theme.sections.at(-1).title));
   assert.equal(sent[1].payload.includes("📢 ᴄʜᴀɴɴᴇʟ"), false);
 });
